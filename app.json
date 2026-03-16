@@ -1,11 +1,45 @@
 {
-  "android": {
-    "package": "com.anonymous.nextjs_tailwind_shadcn_ts"
-  },
-  "extra": {
-    "eas": {
-      "projectId": "984931a8-adce-41c1-860a-3bfcdc4ea803"
-    }
-  },
-  "owner": "evi-kass"
+  "expo": {
+    "name": "ИНЕТШКОЛА",
+    "slug": "inetshkola",
+    "version": "1.0.3",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#1E1B4B"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "ru.inetshkola.app"
+    },
+    "android": {
+      "package": "ru.inetshkola.app",
+      "versionCode": 3,
+      "adaptiveIcon": {
+        "backgroundColor": "#1E1B4B",
+        "foregroundImage": "./assets/adaptive-icon.png"
+      },
+      "permissions": [
+        "VIBRATE",
+        "RECEIVE_BOOT_COMPLETED"
+      ],
+      "softwareKeyboardLayoutMode": "pan"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "kotlinVersion": "1.9.25"
+          }
+        }
+      ]
+    ]
+  }
 }
