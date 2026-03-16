@@ -2,7 +2,7 @@
   "expo": {
     "name": "ИНЕТШКОЛА",
     "slug": "inetshkola",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
@@ -17,7 +17,7 @@
     },
     "android": {
       "package": "ru.inetshkola.app",
-      "versionCode": 3,
+      "versionCode": 4,
       "adaptiveIcon": {
         "backgroundColor": "#1E1B4B",
         "foregroundImage": "./assets/adaptive-icon.png"
@@ -40,6 +40,12 @@
           }
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "7b16850e-d79c-4382-9024-e9a3809daa4a"
+      }
+    },
+    "owner": "evi-kass"
   }
 }
