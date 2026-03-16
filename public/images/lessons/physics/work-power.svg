@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ea580c">Работа и мощность</text>
+  
+  <!-- Work section -->
+  <rect x="10" y="40" width="185" height="130" fill="#ffedd5" rx="8"/>
+  <text x="102" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#c2410c">Механическая работа</text>
+  
+  <text x="102" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ea580c">A = F · S</text>
+  
+  <!-- Work diagram -->
+  <rect x="35" y="100" width="40" height="30" fill="#f97316" rx="3"/>
+  <text x="55" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">ящик</text>
+  
+  <line x1="75" y1="115" x2="130" y2="115" stroke="#dc2626" stroke-width="3"/>
+  <polygon points="130,115 120,110 120,120" fill="#dc2626"/>
+  <text x="102" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#dc2626">F</text>
+  
+  <line x1="55" y1="135" x2="140" y2="135" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,2"/>
+  <polygon points="140,135 132,131 132,139" fill="#3b82f6"/>
+  <text x="100" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6">S</text>
+  
+  <text x="102" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#9a3412">Единица: Джоуль (Дж)</text>
+  
+  <!-- Power section -->
+  <rect x="205" y="40" width="185" height="130" fill="#dbeafe" rx="8"/>
+  <text x="297" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1d4ed8">Мощность</text>
+  
+  <text x="297" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#2563eb">N = A / t</text>
+  
+  <!-- Power diagram - motor -->
+  <rect x="270" y="100" width="55" height="40" fill="#3b82f6" rx="5"/>
+  <text x="297" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white">Двигатель</text>
+  
+  <!-- Rotating arrow -->
+  <path d="M 297 95 A 20 20 0 1 1 297 94" fill="none" stroke="#22c55e" stroke-width="2"/>
+  <polygon points="298,95 292,88 302,90" fill="#22c55e"/>
+  
+  <text x="297" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1e40af">Единица: Ватт (Вт) = Дж/с</text>
+  
+  <!-- Alternative formula -->
+  <rect x="220" y="100" width="70" height="35" fill="#dbeafe" rx="4"/>
+  <text x="255" y="122" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#1d4ed8">N = F · v</text>
+  
+  <!-- Examples section -->
+  <rect x="10" y="180" width="380" height="110" fill="#f1f5f9" rx="8"/>
+  <text x="200" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#334155">Примеры мощности</text>
+  
+  <!-- Human -->
+  <circle cx="60" cy="235" r="12" fill="#fbbf24"/>
+  <line x1="60" y1="247" x2="60" y2="265" stroke="#fbbf24" stroke-width="3"/>
+  <line x1="60" y1="255" x2="50" y2="270" stroke="#fbbf24" stroke-width="2"/>
+  <line x1="60" y1="255" x2="70" y2="270" stroke="#fbbf24" stroke-width="2"/>
+  <text x="60" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#475569">Человек</text>
+  <text x="60" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#64748b">~100 Вт</text>
+  
+  <!-- Car -->
+  <rect x="110" y="248" width="45" height="20" fill="#ef4444" rx="3"/>
+  <rect x="115" y="240" width="25" height="12" fill="#fca5a5" rx="2"/>
+  <circle cx="120" cy="268" r="6" fill="#1e293b"/>
+  <circle cx="145" cy="268" r="6" fill="#1e293b"/>
+  <text x="132" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#475569">Автомобиль</text>
+  <text x="132" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#64748b">~100 кВт</text>
+  
+  <!-- Power plant -->
+  <rect x="190" y="240" width="35" height="30" fill="#64748b"/>
+  <polygon points="190,240 207,220 225,240" fill="#94a3b8"/>
+  <rect x="195" y="245" width="8" height="8" fill="#fbbf24"/>
+  <rect x="212" y="245" width="8" height="8" fill="#fbbf24"/>
+  <text x="207" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#475569">Электростанция</text>
+  <text x="207" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#64748b">~1000 МВт</text>
+  
+  <!-- Horse -->
+  <ellipse cx="295" cy="255" rx="25" ry="12" fill="#92400e"/>
+  <circle cx="310" cy="243" r="8" fill="#92400e"/>
+  <line x1="280" y1="267" x2="275" y2="278" stroke="#92400e" stroke-width="3"/>
+  <line x1="290" y1="267" x2="285" y2="278" stroke="#92400e" stroke-width="3"/>
+  <line x1="300" y1="267" x2="295" y2="278" stroke="#92400e" stroke-width="3"/>
+  <line x1="310" y1="267" x2="315" y2="278" stroke="#92400e" stroke-width="3"/>
+  <text x="295" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#475569">Лошадиная сила</text>
+  <text x="295" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#64748b">1 л.с. ≈ 736 Вт</text>
+  
+  <!-- Formula reminder -->
+  <rect x="340" y="235" width="45" height="55" fill="#fef3c7" rx="4"/>
+  <text x="362" y="252" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#b45309">1 кВт =</text>
+  <text x="362" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#b45309">1000 Вт</text>
+  <text x="362" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" font-weight="bold" fill="#b45309">1 МВт =</text>
+  <text x="362" y="293" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#b45309">10⁶ Вт</text>
+</svg>

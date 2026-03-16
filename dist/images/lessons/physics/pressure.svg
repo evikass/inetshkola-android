@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="200" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#0891b2">Давление</text>
+  
+  <!-- Pressure formula section -->
+  <rect x="10" y="40" width="180" height="80" fill="#cffafe" rx="8"/>
+  <text x="100" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#0e7490">Формула давления</text>
+  
+  <text x="100" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#0891b2">p = F / S</text>
+  <text x="100" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#155e75">Единица: Паскаль (Па) = Н/м²</text>
+  
+  <!-- Pressure example -->
+  <rect x="200" y="40" width="190" height="80" fill="#fef3c7" rx="8"/>
+  <text x="295" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#b45309">Пример</text>
+  
+  <!-- Sharp object -->
+  <polygon points="230,100 260,100 245,65" fill="#64748b"/>
+  <line x1="245" y1="100" x2="245" y2="115" stroke="#dc2626" stroke-width="2"/>
+  <polygon points="245,115 240,105 250,105" fill="#dc2626"/>
+  <text x="245" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#dc2626">F</text>
+  <text x="245" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#b45309">Игла — большое p</text>
+  
+  <!-- Wide object -->
+  <rect x="320" y="85" width="50" height="15" fill="#64748b"/>
+  <line x1="345" y1="100" x2="345" y2="115" stroke="#dc2626" stroke-width="2"/>
+  <polygon points="345,115 340,105 350,105" fill="#dc2626"/>
+  <text x="345" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#dc2626">F</text>
+  <text x="345" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="7" fill="#b45309">Гусеницы — малое p</text>
+  
+  <!-- Pascal's Law -->
+  <rect x="10" y="130" width="180" height="80" fill="#dbeafe" rx="8"/>
+  <text x="100" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1d4ed8">Закон Паскаля</text>
+  
+  <!-- Container with liquid -->
+  <ellipse cx="100" cy="175" rx="50" ry="15" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+  <path d="M 50 175 L 50 160 Q 70 155 100 155 Q 130 155 150 160 L 150 175" fill="#bfdbfe" stroke="#3b82f6" stroke-width="2"/>
+  
+  <!-- Arrows showing pressure -->
+  <line x1="100" y1="175" x2="100" y2="195" stroke="#dc2626" stroke-width="2"/>
+  <line x1="70" y1="165" x2="55" y2="180" stroke="#dc2626" stroke-width="2"/>
+  <line x1="130" y1="165" x2="145" y2="180" stroke="#dc2626" stroke-width="2"/>
+  <line x1="80" y1="155" x2="80" y2="145" stroke="#dc2626" stroke-width="2"/>
+  <line x1="120" y1="155" x2="120" y2="145" stroke="#dc2626" stroke-width="2"/>
+  
+  <text x="100" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#1e40af">Давление передаётся</text>
+  <text x="100" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#1e40af">во все стороны одинаково</text>
+  
+  <!-- Liquid pressure -->
+  <rect x="200" y="130" width="190" height="80" fill="#dcfce7" rx="8"/>
+  <text x="295" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#16a34a">Давление жидкости</text>
+  
+  <text x="295" y="172" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#15803d">p = ρ · g · h</text>
+  
+  <!-- Water column -->
+  <rect x="250" y="178" width="40" height="25" fill="#86efac" stroke="#22c55e" stroke-width="2"/>
+  <line x1="260" y1="178" x2="260" y2="155" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="280" y1="178" x2="280" y2="155" stroke="#0ea5e9" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="270" y="153" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#0ea5e9">h</text>
+  
+  <text x="330" y="188" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#166534">ρ — плотность</text>
+  <text x="330" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#166534">h — высота столба</text>
+  
+  <!-- Atmospheric pressure -->
+  <rect x="10" y="220" width="380" height="70" fill="#fef3c7" rx="8"/>
+  <text x="200" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#b45309">Атмосферное давление</text>
+  
+  <!-- Barometer -->
+  <rect x="30" y="250" width="30" height="35" fill="#d97706" rx="3"/>
+  <rect x="35" y="255" width="20" height="20" fill="#fef3c7"/>
+  <line x1="45" y1="270" x2="45" y2="260" stroke="#dc2626" stroke-width="2"/>
+  <text x="45" y="292" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#b45309">Барометр</text>
+  
+  <text x="130" y="260" font-family="Arial, sans-serif" font-size="10" fill="#78350f">Нормальное давление:</text>
+  <text x="130" y="275" font-family="Arial, sans-serif" font-size="10" fill="#78350f">760 мм рт. ст. ≈ 101325 Па</text>
+  <text x="130" y="288" font-family="Arial, sans-serif" font-size="9" fill="#92400e">Открыл Эванджелиста Торричелли</text>
+  
+  <!-- Manometer -->
+  <rect x="280" y="250" width="50" height="35" fill="#64748b" rx="3"/>
+  <circle cx="305" cy="265" r="10" fill="#f1f5f9"/>
+  <text x="305" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#64748b">P</text>
+  <text x="305" y="292" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#b45309">Манометр</text>
+</svg>

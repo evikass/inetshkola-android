@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ИНЕТШКОЛА</string>
+    <string name="short_name">ИНЕТШКОЛА</string>
+    <string name="file_provider_authority">ru.inetshkola.app.fileprovider</string>
+    <string name="app_description">Интерактивная школьная программа для классов 0-11</string>
+</resources>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <!-- Background -->
+  <rect width="400" height="300" fill="#f8fafc"/>
+  
+  <!-- Title -->
+  <text x="200" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e40af">Механическое движение</text>
+  
+  <!-- Road -->
+  <rect x="20" y="180" width="360" height="8" fill="#64748b" rx="2"/>
+  
+  <!-- Dashed line on road -->
+  <line x1="40" y1="184" x2="80" y2="184" stroke="#fff" stroke-width="2" stroke-dasharray="10,5"/>
+  <line x1="100" y1="184" x2="140" y2="184" stroke="#fff" stroke-width="2" stroke-dasharray="10,5"/>
+  <line x1="160" y1="184" x2="200" y2="184" stroke="#fff" stroke-width="2" stroke-dasharray="10,5"/>
+  <line x1="220" y1="184" x2="260" y2="184" stroke="#fff" stroke-width="2" stroke-dasharray="10,5"/>
+  <line x1="280" y1="184" x2="320" y2="184" stroke="#fff" stroke-width="2" stroke-dasharray="10,5"/>
+  
+  <!-- Car -->
+  <rect x="80" y="150" width="60" height="30" fill="#3b82f6" rx="5"/>
+  <rect x="85" y="140" width="35" height="15" fill="#60a5fa" rx="3"/>
+  <circle cx="95" cy="180" r="8" fill="#1e293b"/>
+  <circle cx="125" cy="180" r="8" fill="#1e293b"/>
+  <circle cx="95" cy="180" r="4" fill="#64748b"/>
+  <circle cx="125" cy="180" r="4" fill="#64748b"/>
+  
+  <!-- Trajectory arrow -->
+  <path d="M 150 165 Q 250 120 340 165" fill="none" stroke="#f97316" stroke-width="2" stroke-dasharray="5,3"/>
+  <polygon points="340,165 330,160 332,168" fill="#f97316"/>
+  
+  <!-- Labels -->
+  <text x="50" y="220" font-family="Arial, sans-serif" font-size="14" fill="#1e40af">A</text>
+  <text x="350" y="220" font-family="Arial, sans-serif" font-size="14" fill="#1e40af">B</text>
+  
+  <!-- Distance arrow -->
+  <line x1="60" y1="240" x2="340" y2="240" stroke="#059669" stroke-width="2"/>
+  <polygon points="60,240 70,235 70,245" fill="#059669"/>
+  <polygon points="340,240 330,235 330,245" fill="#059669"/>
+  <text x="200" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#059669">S (путь)</text>
+  
+  <!-- Speed formula -->
+  <rect x="20" y="60" width="150" height="50" fill="#dbeafe" rx="8"/>
+  <text x="95" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#1e40af">Скорость:</text>
+  <text x="95" y="102" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1e40af">v = S / t</text>
+  
+  <!-- Units -->
+  <rect x="230" y="60" width="150" height="50" fill="#fef3c7" rx="8"/>
+  <text x="305" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#92400e">Единицы:</text>
+  <text x="305" y="102" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#92400e">S = м, t = с, v = м/с</text>
+</svg>

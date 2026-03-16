@@ -1,0 +1,13 @@
+// Экспорт всех игр
+export { prepClassGames } from './grade-0'
+export { firstGradeGames } from './grade-1'
+export { secondGradeGames } from './grade-2'
+export { thirdGradeGames } from './grade-3'
+export { fourthGradeGames } from './grade-4'
+export { fifthGradeGames } from './grade-5'
+export { sixthGradeGames } from './grade-6'
+export { seventhGradeGames } from './grade-7'
+export { eighthGradeGames } from './grade-8'
+export { ninthGradeGames } from './grade-9'
+export { tenthGradeGames } from './grade-10'
+export { eleventhGradeGames } from './grade-11'

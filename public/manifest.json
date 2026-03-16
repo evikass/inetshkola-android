@@ -1,0 +1,91 @@
+{
+  "id": "inetshkola-pwa",
+  "name": "ИНЕТШКОЛА - Интерактивная школьная программа",
+  "short_name": "ИНЕТШКОЛА",
+  "description": "Интерактивная школьная программа для классов 0-11 с уроками и мини-играми по всем предметам.",
+  "start_url": "/school-curriculum-app/",
+  "scope": "/school-curriculum-app/",
+  "display": "standalone",
+  "display_override": ["standalone", "fullscreen", "minimal-ui", "browser"],
+  "orientation": "portrait-primary",
+  "background_color": "#1e1b4b",
+  "theme_color": "#7c3aed",
+  "icons": [
+    {
+      "src": "/school-curriculum-app/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/school-curriculum-app/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/school-curriculum-app/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/school-curriculum-app/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["education", "kids", "games"],
+  "lang": "ru",
+  "dir": "ltr",
+  "screenshots": [
+    {
+      "src": "/school-curriculum-app/store-assets/screenshots/phone-1-home.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Главная страница"
+    },
+    {
+      "src": "/school-curriculum-app/store-assets/screenshots/phone-2-grade.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Выбор класса"
+    },
+    {
+      "src": "/school-curriculum-app/store-assets/screenshots/tablet-1-home.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Версия для планшета"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Выбрать класс",
+      "short_name": "Классы",
+      "url": "/school-curriculum-app/",
+      "description": "Выберите класс для обучения"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "handle_links": "preferred",
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "share_target": {
+    "action": "/school-curriculum-app/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "appId": "ru.inetshkola.app",
+  "appName": "ИНЕТШКОЛА",
+  "appVersion": "3.50.0",
+  "appVersionCode": 350,
+  "display": "standalone",
+  "orientation": "portrait",
+  "startUrl": "/school-curriculum-app/",
+  "hostName": "evikass.github.io",
+  "webManifestUrl": "https://evikass.github.io/school-curriculum-app/manifest.json",
+  "themeColor": "#7c3aed",
+  "navigationColor": "#1e1b4b",
+  "navigationColorDark": "#0f0d24",
+  "navigationDividerColor": "#7c3aed",
+  "navigationDividerColorDark": "#5b21b6",
+  "backgroundColor": "#1e1b4b",
+  "enableSiteSettingsShortcut": true,
+  "fallbackBehavior": {
+    "customTab": {
+      "customTabsEnabled": true,
+      "shareIntentEnabled": true,
+      "showShareItem": true,
+      "showReloadItem": true
+    }
+  },
+  "shareIntent": {
+    "enabled": true,
+    "param": "url"
+  },
+  "maskableIcon": {
+    "src": "icons/icon-512.png",
+    "purpose": "maskable"
+  },
+  "monochromeIcon": {
+    "src": "icons/icon-512-mono.png",
+    "purpose": "monochrome"
+  },
+  "signing": {
+    "keyPath": "./android.keystore",
+    "keyAlias": "inetshkola"
+  },
+  "playStore": {
+    "contactEmail": "your-email@example.com",
+    "category": "EDUCATION",
+    "contentRating": "everyone"
+  }
+}

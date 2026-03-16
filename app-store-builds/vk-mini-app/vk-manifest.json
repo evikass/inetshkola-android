@@ -1,0 +1,26 @@
+{
+  "app_id": 0,
+  "app_title": "ИНЕТШКОЛА",
+  "app_description": "Интерактивная образовательная платформа для школьников 0-11 классов с играми и уроками",
+  "app_type": "web",
+  "web_url": "https://evikass.github.io/school-curriculum-app/",
+  "mobile_web_url": "https://evikass.github.io/school-curriculum-app/",
+  "icon_url": "https://evikass.github.io/school-curriculum-app/icon-512.png",
+  "platform": "web",
+  "is_internal": false,
+  "is_vk_apps": true,
+  "enabled": true,
+  "screenshots": [
+    {
+      "url": "https://evikass.github.io/school-curriculum-app/screenshots/screenshot-1.png",
+      "description": "Главный экран с выбором класса"
+    }
+  ],
+  "categories": ["education", "kids"],
+  "age_restrictions": "0+",
+  "international": false,
+  "supported_platforms": ["web", "mobile_web"],
+  "min_vk_version": "5.131",
+  "vk_api_settings": "friends,photos,wall,groups",
+  "push_enabled": false
+}

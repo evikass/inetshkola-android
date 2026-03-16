@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary colors matching the web app -->
+    <color name="colorPrimary">#7c3aed</color>
+    <color name="colorPrimaryDark">#1e1b4b</color>
+    <color name="colorPrimaryDarkNight">#0f0d24</color>
+    <color name="colorAccent">#a78bfa</color>
+
+    <!-- Navigation bar colors -->
+    <color name="navigationBarColor">#1e1b4b</color>
+    <color name="navigationBarColorDark">#0f0d24</color>
+
+    <!-- Splash screen -->
+    <color name="splashBackground">#7c3aed</color>
+    <color name="splashIconBackground">#ffffff</color>
+</resources>

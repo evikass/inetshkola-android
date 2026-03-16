@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полная школьная программа 1-11 классы</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 p-8">
+    <div id="app">
+        <div class="mb-12 flex flex-wrap gap-4" id="classButtons"></div>
+
+        <h2 class="text-4xl font-bold mb-8 flex items-center gap-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-300">
+            <i data-lucide="school" class="w-12 h-12 text-purple-300 animate-pulse"></i>
+            <span id="classTitle">Школьные предметы</span>
+        </h2>
+
+        <div id="contentContainer"></div>
+    </div>
+
+    <script>
+        const classLessons = {
+        0: [
+            {
+                title: 'Подготовка к письму',
+                icon: 'pencil',
+                color: 'text-purple-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Обведение контуров</li>
+                        <li>Работа с прописями</li>
+                        <li>Развитие мелкой моторики</li>
+                        <li>Рисование линий и узоров</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Основы счёта',
+                icon: 'blocks',
+                color: 'text-blue-300',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Счёт до 10</li>
+                        <li>Игры с цифрами</li>
+                        <li>Сравнение количества</li>
+                        <li>Простые логические задачи</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Развитие речи',
+                icon: 'message-square',
+                color: 'text-pink-300',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Артикуляционные упражнения</li>
+                        <li>Скороговорки</li>
+                        <li>Составление предложений</li>
+                        <li>Слушание сказок</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Окружающий мир',
+                icon: 'leaf',
+                color: 'text-green-300',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Времена года</li>
+                        <li>Домашние животные</li>
+                        <li>Безопасность дома</li>
+                        <li>Экологические игры</li>
+                    </ul>
+                </div>`
+            }
+        ],
+            1: [
+                {
+                    title: 'Математика',
+                    icon: 'calculator',
+                    color: 'text-blue-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Знакомство с цифрами</li>
+                            <li>Счёт предметов</li>
+                            <li>Сложение и вычитание</li>
+                            <li>Простые примеры на сложение</li>
+                            <li>Счёт до 10</li>
+                            <li>Сравнение чисел</li>
+                            <li>Простые задачи</li>
+                            <li>Геометрические фигуры</li>
+                        </ul>
+                    </div>`
+                },
+               {
+                    title: 'Развитие речи',
+                    icon: 'message-circle',
+                    color: 'text-teal-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Составление рассказов</li>
+                            <li>Артикуляционная гимнастика</li>
+                            <li>Стихи и скороговорки</li>
+                        </ul>
+                    </div>`
+                },
+               {
+                    title: 'Русский язык',
+                    icon: 'book-open',
+                    color: 'text-red-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Алфавит</li>
+                            <li>Слоги</li>
+                            <li>Письмо букв</li>
+                            <li>Составление слогов</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Окружающий мир',
+                    icon: 'globe',
+                    color: 'text-green-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Сезоны года</li>
+                            <li>Домашние животные</li>
+                            <li>Правила ПДД</li>
+                            <li>Правила поведения</li>
+                            <li>Экскурсии на природу</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Технология',
+                    icon: 'ruler',
+                    color: 'text-yellow-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Работа с бумагой</li>
+                            <li>Лепка из пластилина</li>
+                            <li>Аппликации</li>
+                            <li>Работа с бумагой</li>
+                            <li>Простые поделки</li>
+                            <li>Конструирование</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Физкультура',
+                    icon: 'dumbbell',
+                    color: 'text-orange-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Подвижные игры</li>
+                            <li>Гимнастика</li>
+                            <li>Эстафеты</li>
+                            <li>Разминка</li>
+                            <li>Упражнения с мячом</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                title: 'ИЗО',
+                icon: 'palette',
+                color: 'text-pink-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Рисование красками</li>
+                        <li>Работа с цветом</li>
+                        <li>Поделки из природных материалов</li>
+                    </ul>
+                </div>`
+            }
+            ],
+
+            2: [
+                {
+                    title: 'Математика: Счёт до 100',
+                    icon: 'calculator',
+                    color: 'text-blue-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Счёт до 100</li>
+                            <li>Сложение и вычитание в столбик</li>
+                            <li>Сложение и вычитание в пределах 100</li>
+                            <li>Единицы измерения</li>
+                            <li>Решение текстовых задач</li>
+                        </ul>
+                    </div>`
+                },
+               {
+                title: 'Русский язык',
+                icon: 'book',
+                color: 'text-red-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Части речи</li>
+                        <li>Правописание жи-ши</li>
+                        <li>Составление предложений</li>
+                        <li>Диктанты</li>
+                    </ul>
+                </div>`
+                 },
+                {
+                    title: 'Литературное чтение',
+                    icon: 'book-open-text',
+                    color: 'text-purple-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Русские народные сказки</li>
+                            <li>Стихи Барто и Маршака</li>
+                            <li>Сказки народов мира</li>
+                            <li>Стихотворения</li>
+                            <li>Пересказ текста</li>
+                            <li>Выразительное чтение</li>
+                            <li>Бианки "Лесная газета"</li>
+                            <li>Маршак "Двенадцать месяцев"</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Иностранный язык',
+                    icon: 'languages',
+                    color: 'text-pink-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Алфавит</li>
+                            <li>Основные фразы</li>
+                            <li>Цифры и цвета</li>
+                            <li>Песни и игры</li>
+                            <li>Игры на запоминание</li>
+                        </ul>
+                    </div>`
+                },
+               {
+                title: 'Окружающий мир',
+                icon: 'globe',
+                color: 'text-green-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Природные явления</li>
+                        <li>Животный мир</li>
+                        <li>Правила ПДД</li>
+                        <li>Экологические основы</li>
+                    </ul>
+                </div>`
+                 },
+                {
+                    title: 'Музыка',
+                    icon: 'music',
+                    color: 'text-cyan-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Нотная грамота</li>
+                            <li>Детские песни</li>
+                            <li>Музыкальные инструменты</li>
+                            <li>Ритмика</li>
+                        </ul>
+                    </div>`
+                 },
+                {
+                     title: 'Проектная деятельность',
+                     icon: 'lightbulb',
+                     color: 'text-violet-400',
+                     content: `<div class="space-y-4">
+                         <ul class="list-disc pl-6 space-y-2">
+                             <li>Создание тематических коллажей</li>
+                             <li>Исследование растений</li>
+                             <li>Презентация "Моя семья"</li>
+                         </ul>
+                      </div>`
+             }
+            ],
+
+            3: [
+                {
+                    title: 'Математика: Умножение',
+                    icon: 'square',
+                    color: 'text-blue-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Таблица умножения</li>
+                            <li>Решение задач</li>
+                            <li>Периметр и площадь</li>
+                            <li>Логические задачи</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Родной язык',
+                    icon: 'book',
+                    color: 'text-amber-600',
+                    content: `<div class="space-y-4">
+                         <ul class="list-disc pl-6 space-y-2">
+                            <li>Имя существительное и прилагательное</li>
+                            <li>Составление предложений</li>
+                            <li>Правила переноса слов</li>
+                            <li>Сочинения</li>
+                            <li>Диктанты</li>
+                            <li>Словообразование</li>
+                            <li>Творческие работы</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Информатика',
+                    icon: 'monitor',
+                    color: 'text-indigo-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Основы логики</li>
+                            <li>Работа с графикой</li>
+                            <li>Безопасность в сети</li>
+                            <li>Алгоритмы</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Окружающий мир',
+                    icon: 'globe',
+                    color: 'text-green-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Создание гербария</li>
+                            <li>Экскурсия в парк</li>
+                            <li>Экосистемы</li>
+                            <li>Полезные ископаемые</li>
+                            <li>Организм человека</li>
+                        </ul>
+                    </div>`
+            },
+
+            // Обязательные предметы
+            {
+                title: 'Литературное чтение',
+                icon: 'book-open-text',
+                color: 'text-purple-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Русские народные сказки</li>
+                        <li>Стихи о природе</li>
+                        <li>Рассказы о животных</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Технология',
+                icon: 'ruler',
+                color: 'text-yellow-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Работа с тканью</li>
+                        <li>Моделирование из бумаги</li>
+                        <li>Простые механизмы</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'ИЗО',
+                icon: 'palette',
+                color: 'text-rose-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Акварельные техники</li>
+                        <li>Рисование натюрмортов</li>
+                        <li>Декоративное искусство</li>
+                        <li>Рисование по мотивам народных росписей</li>
+                        <li>Создание комиксов</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Музыка',
+                icon: 'music',
+                color: 'text-cyan-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Нотная грамота</li>
+                        <li>Детские песни</li>
+                        <li>Игра на шумовых инструментах</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Физическая культура',
+                icon: 'dumbbell',
+                color: 'text-orange-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Подвижные игры</li>
+                        <li>Эстафеты</li>
+                        <li>Гимнастические упражнения</li>
+                    </ul>
+                </div>`
+            },
+
+            // Дополнительные предметы
+            {
+                title: 'ОБЖ',
+                icon: 'shield',
+                color: 'text-red-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Правила дорожного движения</li>
+                        <li>Опасные ситуации дома</li>
+                        <li>Основы первой помощи</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Краеведение',
+                icon: 'map-pin',
+                color: 'text-fuchsia-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Природа родного края</li>
+                        <li>Народные промыслы</li>
+                        <li>Исторические места</li>
+                    </ul>
+                </div>`
+            },
+
+            // Профильные предметы
+            {
+                title: 'Робототехника',
+                icon: 'cpu',
+                color: 'text-violet-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Конструирование Lego</li>
+                        <li>Простые механизмы</li>
+                        <li>Основы программирования</li>
+                    </ul>
+                </div>`
+            },
+            {
+                    title: 'Этика и общение',
+                    icon: 'heart-handshake',
+                    color: 'text-pink-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Правила вежливости</li>
+                            <li>Культура речи</li>
+                            <li>Работа в команде</li>
+                            <li>Решение конфликтов</li>
+                        </ul>
+                    </div>`
+                }
+            ],
+
+            4: [
+                {
+                    title: 'История России',
+                    icon: 'landmark',
+                    color: 'text-amber-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Древняя Русь</li>
+                            <li>Крещение Руси</li>
+                            <li>Монгольское иго</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Природоведение',
+                    icon: 'leaf',
+                    color: 'text-green-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Климатические зоны</li>
+                            <li>Царства живых организмов</li>
+                            <li>Экскурсии в природный парк</li>
+                            <li>Создание гербария</li>
+                            <li>Экологические проблемы</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Русский язык: Падежи',
+                    icon: 'book',
+                    color: 'text-red-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Склонение существительных</li>
+                            <li>Определение падежей</li>
+                            <li>Правописание окончаний</li>
+                            <li>Синтаксический разбор</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'География: Россия',
+                    icon: 'map',
+                    color: 'text-teal-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Федеративное устройство</li>
+                            <li>Крупные реки и озёра</li>
+                            <li>Природные зоны</li>
+                            <li>Полезные ископаемые</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                title: 'Математика',
+                icon: 'calculator',
+                color: 'text-blue-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Умножение и деление</li>
+                        <li>Дроби</li>
+                        <li>Задачи на скорость</li>
+                        <li>Периметр и площадь</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Литературное чтение',
+                icon: 'book-open-text',
+                color: 'text-purple-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Русские былины</li>
+                        <li>Сказки народов России</li>
+                        <li>А.С. Пушкин "Сказка о золотом петушке"</li>
+                        <li>Башкирские народные сказки</li>
+                        <li>Стихи о природе</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Технология',
+                icon: 'ruler',
+                color: 'text-yellow-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Работа с бумагой</li>
+                        <li>Электрические цепи</li>
+                        <li>Простые механизмы</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'ИЗО',
+                icon: 'palette',
+                color: 'text-rose-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Пейзажная живопись</li>
+                        <li>Графика</li>
+                        <li>Народные орнаменты</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Физическая культура',
+                icon: 'dumbbell',
+                color: 'text-orange-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Подвижные игры</li>
+                        <li>Гимнастика</li>
+                        <li>Лыжная подготовка</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'ОРКСЭ',
+                icon: 'heart-handshake',
+                color: 'text-pink-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Основы мировых религий</li>
+                        <li>Нравственные ценности</li>
+                        <li>Семейные традиции</li>
+                    </ul>
+                </div>`
+            },
+
+            // Дополнительные предметы
+            {
+                title: 'Информатика',
+                icon: 'monitor',
+                color: 'text-indigo-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Работа с клавиатурой</li>
+                        <li>Создание рисунков</li>
+                        <li>Безопасный интернет</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Краеведение',
+                icon: 'map-pin',
+                color: 'text-fuchsia-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>История города</li>
+                        <li>Природа региона</li>
+                        <li>Знаменитые земляки</li>
+                    </ul>
+                </div>`
+            },
+
+            // Профильные предметы
+            {
+                title: 'Проектная деятельность',
+                icon: 'lightbulb',
+                color: 'text-emerald-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Исследовательские проекты</li>
+                        <li>Создание макетов</li>
+                        <li>Защита проектов</li>
+                    </ul>
+                </div>`
+            }
+            ],
+
+            5: [
+                {
+                    title: 'Биология',
+                    icon: 'bug',
+                    color: 'text-lime-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Строение клетки</li>
+                            <li>Фотосинтез</li>
+                            <li>Классификация растений</li>
+                            <li>Строение растений</li>
+                            <li>Классификация животных</li>
+                            <li>Экосистемы</li>
+                            <li>Опыты с микроскопом</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'История Древнего мира',
+                    icon: 'landmark',
+                    color: 'text-amber-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Древний Египет</li>
+                            <li>Пирамиды Гизы</li>
+                            <li>Олимпийские игры в Древней Греции</li>
+                            <li>Античная Греция</li>
+                            <li>Римская империя</li>
+                            <li>Археология</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'География',
+                    icon: 'map',
+                    color: 'text-teal-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Физическая карта мира</li>
+                            <li>Климатические пояса</li>
+                            <li>Строение Земли</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Финансовая грамотность',
+                    icon: 'wallet',
+                    color: 'text-emerald-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Семейный бюджет</li>
+                            <li>Сбережения</li>
+                            <li>Основы экономики</li>
+                            <li>Финансовое планирование</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Цифровая грамотность',
+                    icon: 'smartphone',
+                    color: 'text-indigo-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Безопасность в интернете</li>
+                            <li>Работа с документами</li>
+                            <li>Создание презентаций</li>
+                            <li>Критическое мышление</li>
+                        </ul>
+                    </div>`
+               },
+            // Обязательные предметы
+            {
+                title: 'Русский язык',
+                icon: 'book',
+                color: 'text-red-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Фонетика и орфоэпия</li>
+                        <li>Состав слова</li>
+                        <li>Части речи</li>
+                        <li>Синтаксис простого предложения</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Литература',
+                icon: 'book-open-text',
+                color: 'text-purple-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Мифы народов мира</li>
+                        <li>Русские народные сказки</li>
+                        <li>Басни Крылова</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Математика',
+                icon: 'calculator',
+                color: 'text-blue-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Натуральные числа</li>
+                        <li>Деление с остатком</li>
+                        <li>Площади фигур</li>
+                        <li>Задачи на логику</li>
+                        <li>Игры с математическими головоломками</li>
+                        <li>Проект "Математика вокруг нас"</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Иностранный язык',
+                icon: 'languages',
+                color: 'text-pink-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Алфавит</li>
+                        <li>Основные фразы</li>
+                        <li>Счёт до 100</li>
+                        <li>Диалоги</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Технология',
+                icon: 'hammer',
+                color: 'text-orange-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Работа с деревом</li>
+                        <li>Швейное дело</li>
+                        <li>Кулинарные основы</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'ИЗО',
+                icon: 'palette',
+                color: 'text-rose-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Основы композиции</li>
+                        <li>Акварельная живопись</li>
+                        <li>Народные промыслы</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Музыка',
+                icon: 'music',
+                color: 'text-cyan-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Нотный стан</li>
+                        <li>Хоровое пение</li>
+                        <li>Музыкальные инструменты</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Физическая культура',
+                icon: 'dumbbell',
+                color: 'text-emerald-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Подвижные игры</li>
+                        <li>Гимнастика</li>
+                        <li>Лёгкая атлетика</li>
+                    </ul>
+                </div>`
+            },
+
+            // Дополнительные предметы
+            {
+                title: 'ОБЖ',
+                icon: 'shield',
+                color: 'text-yellow-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Правила дорожного движения</li>
+                        <li>Опасные ситуации дома</li>
+                        <li>Основы первой помощи</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Информатика',
+                icon: 'monitor',
+                color: 'text-indigo-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Работа в текстовом редакторе</li>
+                        <li>Создание презентаций</li>
+                        <li>Безопасность в интернете</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Краеведение',
+                icon: 'map-pin',
+                color: 'text-fuchsia-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Природа родного края</li>
+                        <li>Исторические памятники</li>
+                        <li>Традиции региона</li>
+                    </ul>
+                </div>`
+            },
+
+            // Профильные предметы
+            {
+                title: 'Робототехника',
+                icon: 'cpu',
+                color: 'text-violet-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Основы механики</li>
+                        <li>Конструирование моделей</li>
+                        <li>Программирование Lego Mindstorms</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Художественные ремёсла',
+                icon: 'brush',
+                color: 'text-amber-600',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Лепка из глины</li>
+                        <li>Роспись по дереву</li>
+                        <li>Бисероплетение</li>
+                        <li>Мастер-классы по народным промыслам</li>
+                    </ul>
+                </div>`
+            }
+            ],
+
+            6: [
+                {
+                    title: 'Физика',
+                    icon: 'atom',
+                    color: 'text-pink-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Механическое движение</li>
+                            <li>Сила трения</li>
+                            <li>Простые механизмы</li>
+                            <li>Лабораторные работы</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Химия',
+                    icon: 'flask-conical',
+                    color: 'text-cyan-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Периодическая таблица</li>
+                            <li>Химические реакции</li>
+                            <li>Лабораторное оборудование</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Литература',
+                    icon: 'book-open',
+                    color: 'text-yellow-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Русская классика</li>
+                            <li>Анализ текста</li>
+                            <li>Литературные жанры</li>
+                            <li>Биографии писателей</li>
+                        </ul>
+                    </div>`
+                },
+            // Обязательные предметы
+            {
+                title: 'Русский язык',
+                icon: 'book',
+                color: 'text-red-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Морфология</li>
+                        <li>Синтаксис</li>
+                        <li>Пунктуация</li>
+                        <li>Стили текста</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Математика',
+                icon: 'calculator',
+                color: 'text-blue-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Дроби</li>
+                        <li>Пропорции</li>
+                        <li>Отрицательные числа</li>
+                        <li>Начала алгебры</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'История',
+                icon: 'landmark',
+                color: 'text-amber-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Средневековая Европа</li>
+                        <li>Древняя Русь</li>
+                        <li>Культура и религия</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Обществознание',
+                icon: 'users',
+                color: 'text-emerald-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Социальные институты</li>
+                        <li>Государственное устройство</li>
+                        <li>Права человека</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'География',
+                icon: 'map',
+                color: 'text-teal-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Литосфера</li>
+                        <li>Гидросфера</li>
+                        <li>Работа с картами</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Биология',
+                icon: 'bug',
+                color: 'text-lime-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Строение растений</li>
+                        <li>Фотосинтез</li>
+                        <li>Классификация</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Иностранный язык',
+                icon: 'languages',
+                color: 'text-pink-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Грамматика</li>
+                        <li>Аудирование</li>
+                        <li>Диалоги</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Технология',
+                icon: 'ruler',
+                color: 'text-yellow-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Работа с деревом</li>
+                        <li>Основы кулинарии</li>
+                        <li>Проектирование</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Физическая культура',
+                icon: 'dumbbell',
+                color: 'text-orange-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Спортивные игры</li>
+                        <li>Гимнастика</li>
+                        <li>Лёгкая атлетика</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'ИЗО',
+                icon: 'brush',
+                color: 'text-rose-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Живопись</li>
+                        <li>Графика</li>
+                        <li>Декоративное искусство</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Музыка',
+                icon: 'music',
+                color: 'text-cyan-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Нотная грамота</li>
+                        <li>Хоровое пение</li>
+                        <li>Музыкальные жанры</li>
+                    </ul>
+                </div>`
+            },
+
+            // Дополнительные предметы
+            {
+                title: 'Информатика',
+                icon: 'monitor',
+                color: 'text-indigo-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Алгоритмы</li>
+                        <li>Текстовые редакторы</li>
+                        <li>Графический дизайн</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'ОБЖ',
+                icon: 'shield',
+                color: 'text-purple-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Первая помощь</li>
+                        <li>Чрезвычайные ситуации</li>
+                        <li>Здоровый образ жизни</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Краеведение',
+                icon: 'map-pin',
+                color: 'text-fuchsia-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>История региона</li>
+                        <li>Природа края</li>
+                        <li>Культурные традиции</li>
+                    </ul>
+                </div>`
+            },
+
+            // Профильные предметы
+            {
+                title: 'Робототехника',
+                icon: 'cpu',
+                color: 'text-violet-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Сборка моделей</li>
+                        <li>Основы механики</li>
+                        <li>Программирование</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Экология',
+                icon: 'leaf',
+                color: 'text-green-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Защита природы</li>
+                        <li>Экосистемы</li>
+                        <li>Устойчивое развитие</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Основы программирования',
+                icon: 'code',
+                color: 'text-sky-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Язык Scratch</li>
+                        <li>Создание игр</li>
+                        <li>Логические задачи</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Художественные ремёсла',
+                icon: 'palette',
+                color: 'text-amber-600',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Роспись по дереву</li>
+                        <li>Гончарное дело</li>
+                        <li>Вышивка</li>
+                    </ul>
+                </div>`
+            }
+            ],
+
+            7: [
+                {
+                    title: 'Алгебра',
+                    icon: 'sigma',
+                    color: 'text-blue-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Линейные уравнения</li>
+                            <li>Системы уравнений</li>
+                            <li>Графики функций</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Геометрия',
+                    icon: 'shapes',
+                    color: 'text-purple-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Треугольники и их свойства</li>
+                            <li>Теорема Пифагора</li>
+                            <li>Площади фигур</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Химия',
+                    icon: 'flask-conical',
+                    color: 'text-cyan-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Периодическая система</li>
+                            <li>Химические реакции</li>
+                            <li>Лабораторная посуда</li>
+                            <li>Правила безопасности</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Экология',
+                    icon: 'leaf',
+                    color: 'text-lime-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Загрязнение окружающей среды</li>
+                            <li>Устойчивое развитие</li>
+                            <li>Экологические проекты</li>
+                            <li>Переработка отходов</li>
+                        </ul>
+                    </div>`
+                },
+            {
+                title: 'Русский язык',
+                icon: 'book',
+                color: 'text-red-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Причастия и деепричастия</li>
+                        <li>Сложные предложения</li>
+                        <li>Пунктуационный разбор</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Литература',
+                icon: 'book-open',
+                color: 'text-yellow-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Литература XIX века</li>
+                        <li>Анализ поэзии</li>
+                        <li>Драматургия</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'История',
+                icon: 'landmark',
+                color: 'text-amber-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Эпоха Возрождения</li>
+                        <li>Реформация</li>
+                        <li>Смутное время в России</li>
+                        <li>Польская интервенция</li>
+                        <li>Ополчение Минина и Пожарского</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Обществознание',
+                icon: 'users',
+                color: 'text-emerald-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Правовое государство</li>
+                        <li>Гражданское общество</li>
+                        <li>Экономические системы</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'География',
+                icon: 'map',
+                color: 'text-teal-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Материки и океаны</li>
+                        <li>Климатические пояса</li>
+                        <li>Географические координаты</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Биология',
+                icon: 'bug',
+                color: 'text-lime-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Зоология</li>
+                        <li>Строение животных</li>
+                        <li>Эволюция</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Иностранный язык',
+                icon: 'languages',
+                color: 'text-pink-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Грамматические времена</li>
+                        <li>Чтение художественных текстов</li>
+                        <li>Подготовка презентаций</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Технология',
+                icon: 'ruler',
+                color: 'text-yellow-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Электротехника</li>
+                        <li>Работа с металлом</li>
+                        <li>3D-моделирование</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Физическая культура',
+                icon: 'dumbbell',
+                color: 'text-orange-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Осень: кроссовая подготовка</li>
+                        <li>Зима: лыжи</li>
+                        <li>Весна: спортивные игры</li>
+                        <li>Волейбол</li>
+                        <li>Лыжная подготовка</li>
+                        <li>Спортивное ориентирование</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'ИЗО',
+                icon: 'brush',
+                color: 'text-rose-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Перспектива</li>
+                        <li>Цветоведение</li>
+                        <li>Скульптура</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Музыка',
+                icon: 'music',
+                color: 'text-cyan-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Музыкальные стили</li>
+                        <li>Нотная грамота</li>
+                        <li>Игра на инструментах</li>
+                    </ul>
+                </div>`
+            },
+
+            // Дополнительные предметы
+            {
+                title: 'Информатика',
+                icon: 'monitor',
+                color: 'text-indigo-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Основы программирования</li>
+                        <li>Создание сайтов</li>
+                        <li>Компьютерная графика</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Краеведение',
+                icon: 'map-pin',
+                color: 'text-fuchsia-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>История города</li>
+                        <li>Промышленность региона</li>
+                        <li>Экскурсионная деятельность</li>
+                    </ul>
+                </div>`
+            },
+
+            // Профильные предметы
+            {
+                title: 'Робототехника',
+                icon: 'cpu',
+                color: 'text-violet-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Схемотехника</li>
+                        <li>Программирование Arduino</li>
+                        <li>Создание роботов</li>
+                    </ul>
+                </div>`
+            },
+            {
+                    title: 'ОБЖ',
+                    icon: 'shield',
+                    color: 'text-orange-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Первая помощь</li>
+                            <li>Чрезвычайные ситуации</li>
+                            <li>Противопожарная безопасность</li>
+                            <li>Здоровый образ жизни</li>
+                        </ul>
+                    </div>`
+                }
+            ],
+
+            8: [
+            {
+                title: 'Алгебра',
+                icon: 'sigma',
+                color: 'text-blue-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Квадратные уравнения</li>
+                        <li>Неравенства</li>
+                        <li>Степени и логарифмы</li>
+                        <li>Прогрессии</li>
+                    </ul>
+                </div>`
+                },
+                {
+                    title: 'Геометрия',
+                    icon: 'shapes',
+                    color: 'text-purple-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Теорема Пифагора</li>
+                            <li>Площади фигур</li>
+                            <li>Объёмы тел</li>
+                            <li>Задачи на построение</li>
+                            <li>Координатный метод</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Информатика',
+                    icon: 'monitor',
+                    color: 'text-indigo-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Программирование на Python</li>
+                            <li>Алгоритмы</li>
+                            <li>Базы данных</li>
+                            <li>Кибербезопасность</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Обществознание',
+                    icon: 'users',
+                    color: 'text-emerald-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Государственное устройство</li>
+                            <li>Права и обязанности</li>
+                            <li>Экономические системы</li>
+                        </ul>
+                    </div>`
+                },
+            {
+                title: 'Физика',
+                icon: 'atom',
+                color: 'text-pink-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Законы Ньютона</li>
+                        <li>Электричество</li>
+                        <li>Тепловые явления</li>
+                        <li>Лабораторные работы</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Химия',
+                icon: 'flask-conical',
+                color: 'text-cyan-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Периодический закон</li>
+                        <li>Химические связи</li>
+                        <li>Реакции окисления</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Робототехника',
+                icon: 'cpu',
+                color: 'text-violet-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Программирование Arduino</li>
+                        <li>3D-печать</li>
+                        <li>Схемотехника</li>
+                    </ul>
+                </div>`
+            },
+            {
+                    title: 'Основы права',
+                    icon: 'scale',
+                    color: 'text-rose-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Конституция РФ</li>
+                            <li>Права ребенка</li>
+                            <li>Трудовое право</li>
+                            <li>Уголовная ответственность</li>
+                            <li>Юридическая ответственность</li>
+                            <li>Трудовое право</li>
+                        </ul>
+                    </div>`
+                }
+            ],
+
+           9: [
+                {
+                    title: 'Литература',
+                    icon: 'book-open',
+                    color: 'text-yellow-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Русская классика XIX века</li>
+                            <li>Анализ произведений</li>
+                            <li>Литературные направления</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Химия: Органическая',
+                    icon: 'flask-conical',
+                    color: 'text-cyan-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Углеводороды</li>
+                            <li>Белки и жиры</li>
+                            <li>Полимеры</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Алгебра',
+                    icon: 'sigma',
+                    color: 'text-blue-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Квадратные уравнения</li>
+                            <li>Прогрессии</li>
+                            <li>Тригонометрия</li>
+                            <li>Подготовка к ОГЭ</li>
+                        </ul>
+                    </div>`
+                },
+               {
+                   title: 'Психология',
+                   icon: 'brain',
+                   color: 'text-fuchsia-400',
+                   content: `<div class="space-y-4">
+                       <ul class="list-disc pl-6 space-y-2">
+                           <li>Эмоциональный интеллект</li>
+                           <li>Стресс-менеджмент</li>
+                           <li>Конфликтология</li>
+                           <li>Профориентация</li>
+                           <li>Тайм-менеджмент</li>
+                           <li>Коммуникативные навыки</li>
+                       </ul>
+                   </div>`
+                 },
+                {
+                    title: 'Обществознание',
+                    icon: 'users',
+                    color: 'text-emerald-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Права человека</li>
+                            <li>Экономические системы</li>
+                            <li>Политическое устройство</li>
+                            <li>Социальные институты</li>
+                        </ul>
+                    </div>`
+                 },
+                {
+                title: 'Экономика',
+                icon: 'banknote',
+                color: 'text-emerald-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Рынок и конкуренция</li>
+                        <li>Бюджетирование</li>
+                        <li>Основы предпринимательства</li>
+                    </ul>
+                </div>`
+                 },
+                {
+               title: 'Карьерное консультирование',
+               icon: 'briefcase',
+               color: 'text-teal-400',
+               content: `<div class="space-y-4">
+                  <ul class="list-disc pl-6 space-y-2">
+                       <li>Анализ профессий будущего</li>
+                       <li>Составление резюме</li>
+                       <li>Mock-собеседования</li>
+                   </ul>
+               </div>`
+                 },
+                {
+                title: 'Подготовка к ОГЭ',
+                icon: 'graduation-cap',
+                color: 'text-orange-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Типовые экзаменационные задания</li>
+                        <li>Стратегии решения задач</li>
+                        <li>Пробные тестирования</li>
+                    </ul>
+                </div>`
+            }
+            ],
+
+            10: [
+                {
+                    title: 'Технология',
+                    icon: 'cpu',
+                    color: 'text-purple-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Робототехника</li>
+                            <li>3D-моделирование</li>
+                            <li>Программирование</li>
+                            <li>Проектная деятельность</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Искусство',
+                    icon: 'brush',
+                    color: 'text-rose-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>История искусства</li>
+                            <li>Современные направления</li>
+                            <li>Арт-проекты</li>
+                            <li>Критика и анализ</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Профориентация',
+                    icon: 'briefcase',
+                    color: 'text-emerald-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Выбор профессии</li>
+                            <li>Составление резюме</li>
+                            <li>Собеседования</li>
+                            <li>Карьерное планирование</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Литература',
+                    icon: 'book-open',
+                    color: 'text-yellow-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Анализ произведений</li>
+                            <li>Литературные направления</li>
+                            <li>Подготовка к ЕГЭ</li>
+                            <li>Критические статьи</li>
+                        </ul>
+                    </div>`
+                },
+                {
+                    title: 'Физика: Квантовая',
+                    icon: 'atom',
+                    color: 'text-pink-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Строение атома</li>
+                            <li>Ядерные реакции</li>
+                            <li>Элементарные частицы</li>
+                            <li>Космология</li>
+                        </ul>
+                    </div>`
+                 },
+            {
+                title: 'Астрономия',
+                icon: 'telescope',
+                color: 'text-violet-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Солнечная система</li>
+                        <li>Эволюция звезд</li>
+                        <li>Космические технологии</li>
+                        <li>Космологические модели</li>
+                        <li>Телескопы и наблюдения</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Основы предпринимательства',
+                icon: 'rocket',
+                color: 'text-amber-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Бизнес-планирование</li>
+                        <li>Маркетинг</li>
+                        <li>Управление проектами</li>
+                        <li>Финансовые расчеты</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Философия',
+                icon: 'gem',
+                color: 'text-amber-600',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Античная философия</li>
+                        <li>Этика и мораль</li>
+                        <li>Современные теории</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Проектная работа',
+                icon: 'lightbulb',
+                color: 'text-sky-400',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Исследовательские методы</li>
+                        <li>Научное руководство</li>
+                        <li>Защита проектов</li>
+                    </ul>
+                </div>`
+            },
+            {
+                   title: 'Лабораторный практикум',
+                   icon: 'microscope',
+                   color: 'text-lime-400',
+                   content: `<div class="space-y-4">
+                     <ul class="list-disc pl-6 space-y-2">
+                     <li>Физические эксперименты</li>
+                     <li>Химический анализ</li>
+                     <li>Биологические исследования</li>
+                  </ul>
+               </div>`
+            },
+            {
+                    title: 'Подготовка к ЕГЭ',
+                    icon: 'graduation-cap',
+                    color: 'text-orange-400',
+                    content: `<div class="space-y-4">
+                        <ul class="list-disc pl-6 space-y-2">
+                            <li>Типовые экзаменационные задания</li>
+                            <li>Стратегии решения задач</li>
+                            <li>Тайм-менеджмент на экзамене</li>
+                            <li>Профильная математика</li>
+                            <li>Сочинение по русскому языку</li>
+                            <li>Решение сложных задач</li>
+                        </ul>
+                    </div>`
+                }
+            ],
+        11: [
+            {
+                title: 'Алгебра и начала анализа',
+                icon: 'sigma',
+                color: 'text-indigo-500',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Производные</li>
+                        <li>Интегралы</li>
+                        <li>Логарифмические уравнения</li>
+                        <li>Подготовка к ЕГЭ</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Русский язык (ЕГЭ)',
+                icon: 'book-open-text',
+                color: 'text-red-500',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Синтаксис сложных предложений</li>
+                        <li>Стилистический анализ</li>
+                        <li>Сочинение-рассуждение</li>
+                        <li>Орфоэпические нормы</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Физика',
+                icon: 'atom',
+                color: 'text-cyan-500',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Электродинамика</li>
+                        <li>Квантовая физика</li>
+                        <li>Решение олимпиадных задач</li>
+                        <li>Лабораторные работы</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Обществознание',
+                icon: 'scale',
+                color: 'text-amber-600',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Политология</li>
+                        <li>Правовые системы</li>
+                        <li>Экономический анализ</li>
+                        <li>Написание эссе</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Химия',
+                icon: 'flask-conical',
+                color: 'text-emerald-600',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Органическая химия</li>
+                        <li>Цепные реакции</li>
+                        <li>Решение расчётных задач</li>
+                        <li>Подготовка к олимпиадам</li>
+                    </ul>
+                </div>`
+            },
+            {
+                title: 'Информатика',
+                icon: 'code',
+                color: 'text-violet-600',
+                content: `<div class="space-y-4">
+                    <ul class="list-disc pl-6 space-y-2">
+                        <li>Программирование на Python</li>
+                        <li>Алгоритмы обработки данных</li>
+                        <li>Базы данных</li>
+                        <li>Компьютерные сети</li>
+                    </ul>
+                </div>`
+            }
+        ]
+    };
+
+        class App {
+            constructor() {
+                this.selectedClass = 1;
+                this.selectedLesson = null;
+                this.init();
+            }
+
+            init() {
+                lucide.createIcons();
+                this.renderClassButtons();
+                this.renderLessons();
+            }
+
+renderClassButtons() {
+    const container = document.getElementById('classButtons');
+    const classes = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+    
+    container.innerHTML = classes.map(cls => `
+        <button 
+            class="px-6 py-3 rounded-full text-lg font-medium transition-all
+            ${cls === this.selectedClass 
+                ? 'bg-gradient-to-r from-purple-600 to-blue-500 text-white shadow-lg shadow-purple-500/40 hover:shadow-purple-500/60' 
+                : 'bg-gray-800 hover:bg-gray-700 text-gray-300 hover:text-white'}"
+            onclick="app.handleClassChange(${cls})"
+        >
+            ${cls === 0 ? 'Подготовительный' : cls + ' класс'}
+        </button>
+    `).join('');
+}
+
+            renderLessons() {
+                const container = document.getElementById('contentContainer');
+                const lessons = classLessons[this.selectedClass] || [];
+                
+                if(this.selectedLesson) {
+                    container.innerHTML = `
+                        <div class="bg-gray-800/80 backdrop-blur-lg rounded-xl p-6 border border-gray-700">
+                            <button
+                                onclick="app.handleBack()"
+                                class="mb-4 text-gray-300 hover:text-white flex items-center gap-2"
+                            >
+                                <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                                Назад
+                            </button>
+                            <h3 class="text-2xl font-bold mb-4">${this.selectedLesson.title}</h3>
+                            <div class="text-gray-100 space-y-4">
+                                ${this.selectedLesson.content}
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    container.innerHTML = lessons.length ? `
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            ${lessons.map(lesson => `
+                                <div class="relative p-6 bg-gray-800/80 backdrop-blur-lg rounded-xl border border-gray-700 hover:border-purple-400 transition-all group">
+                                    <div class="flex items-center gap-3 mb-4">
+                                        <i data-lucide="${lesson.icon}" class="w-6 h-6 ${lesson.color}"></i>
+                                        <h3 class="text-xl font-semibold text-gray-100">${lesson.title}</h3>
+                                    </div>
+                                    <button
+                                        onclick="app.handleLessonSelect(${lessons.indexOf(lesson)})"
+                                        class="w-full py-2.5 px-4 bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-lg hover:opacity-90 transition-opacity font-medium"
+                                    >
+                                        Открыть уроки →
+                                    </button>
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : `<div class="text-gray-400 text-center py-12">Материалы для этого класса готовятся</div>`;
+                }
+                
+                document.getElementById('classTitle').textContent = 
+                    `Школьные предметы ${this.selectedClass} класса`;
+                
+                lucide.createIcons();
+            }
+
+            handleClassChange(className) {
+                this.selectedClass = className;
+                this.selectedLesson = null;
+                this.renderClassButtons();
+                this.renderLessons();
+            }
+
+            handleLessonSelect(index) {
+                this.selectedLesson = classLessons[this.selectedClass][index];
+                this.renderLessons();
+            }
+
+            handleBack() {
+                this.selectedLesson = null;
+                this.renderLessons();
+            }
+        }
+
+        const app = new App();
+    </script>
+</body>
+</html>

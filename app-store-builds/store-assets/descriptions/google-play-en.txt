@@ -1,0 +1,74 @@
+INETSHKOLA — Interactive Educational Platform for Students
+
+📚 About:
+
+INETSHKOLA is a modern mobile application for students in grades 0-11 that transforms learning into an exciting adventure! Fully aligned with the Russian school curriculum featuring interactive lessons, games, and tests.
+
+✨ Key Features:
+
+• 📖 12 Grades — Complete curriculum from preparatory group to 11th grade
+• 🎮 50+ Educational Games — Math, Russian language, English, Physics, Chemistry, and more
+• 📝 Interactive Lessons — Clear explanations with examples and illustrations
+• 🏆 Achievement System — Motivation through rewards and badges
+• 📊 Learning Progress — Track success in each subject
+• 🎯 Tests & Quizzes — Knowledge checks in a game format
+
+🎓 Subjects:
+
+✓ Mathematics and Algebra
+✓ Russian Language and Literature
+✓ English Language
+✓ Physics and Chemistry
+✓ Biology and Geography
+✓ History and Social Studies
+✓ Computer Science and Programming
+✓ Art, Music, Physical Education
+✓ And much more!
+
+👶 For Every Age:
+
+— Grade 0: School preparation, reading and counting basics
+— Grades 1-4: Elementary school with colorful illustrations
+— Grades 5-9: Middle school with advanced topics
+— Grades 10-11: High school with EGE/OGE exam preparation
+
+💡 Why INETSHKOLA?
+
+1. Completely free to use
+2. No ads or in-app purchases
+3. Works offline (content downloads in advance)
+4. Safe environment for children
+5. Regular content updates
+
+📱 App Features:
+
+• Dark and light themes
+• Sound effects and music
+• Parental controls
+• Progress synchronization
+• Intuitive interface
+
+🏆 Achievements and Rewards:
+
+Students earn rewards for completing tasks:
+— Stickers for completed lessons
+— Badges for achievements
+— Bonuses for learning streaks
+— Certificates for completed topics
+
+👨‍👩‍👧‍👦 For Parents:
+
+— View learning statistics
+— Set up notifications
+— Control study time
+— Development recommendations
+
+🌐 Offline Access:
+
+Download the required grades once and learn without internet — on the road, at the cottage, anywhere!
+
+📧 Contact Developer:
+
+Found an error or have a suggestion? Email us: support@inetshkola.ru
+
+© 2024 INETSHKOLA. All rights reserved.
